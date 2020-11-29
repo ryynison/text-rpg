@@ -4,10 +4,16 @@ public class Player extends Entity {
   private final String name; // Player name
   private int exp; // experience points for leveling up
 
-  public Player(int level, int maxHealth, int health, int defense,
-  int attack, int gold, String name) {
-    super(0, 10, 10, 1, 1, 0);
+  public Player(String name) {
+    level = 0;
+    maxHealth = 10;
+    currentHealth = maxHealth;
+    defense = 1;
+    attack = 1;
+    gold = 0;
+
     this.name = name;
+    exp = 0;
   }
 
   // Getters/setters
@@ -21,13 +27,18 @@ public class Player extends Entity {
     "  Health: "+currentHealth+"/"+maxHealth+"\n"+
     "  Attack: "+attack+"\n"+
     "  Defense: "+defense+"\n"+
-    "  Level: "+name+"\n"+
+    "  Level: "+level+"\n"+
     "  Experience: to be implememnted\n"+
     "  Gold: "+gold;
   }
 
   public int levelUp() {
-    return 0;
+    @TODO implement a level function so that after exp
+    passes treshhold, level up occurs
+    if() {
+      null;
+    }
+    return level;
   }
 
 }

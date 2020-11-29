@@ -7,18 +7,10 @@ public class Entity {
 	protected int defense; // Entity defense stat (determines damage taken)
 	protected int attack; // Entity attack stat (determines damage given)
 	protected int gold; // Entity gold (used to buy/sell)
-
-	protected boolean isAlive;  // Is alive? no? then dead.
+	protected boolean isAlive;  // Living status of entity
 
   // Constructor
-	public Entity(int level, int maxHealth,
-  int currentHealth, int defense, int attack, int gold)  {
-		this.level = level;
-		this.maxHealth = maxHealth;
-		this.currentHealth = currentHealth;
-		this.defense = defense;
-		this.attack = attack;
-		this.gold = gold;
+	public Entity()  {
 		isAlive = true;
 	}
 
