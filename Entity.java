@@ -1,24 +1,21 @@
 
 public class Entity {
-  private string name; // Entity name
-  private string sex; // Entity sex
+
 	private int level; // Entity level
 	private int maxHealth; // Max possible health for any given state
-	private int currentHealth; // current health of entity
-	private int defense; // Entity defnese
-	private int attack; // Entity attack
-	private int gold; // Entity gold
+	private int currentHealth; // Current health of entity
+	private int defense; // Entity defense stat (determines damage taken)
+	private int attack; // Entity attack stat (determines damage given)
+	private int gold; // Entity gold (used to buy/sell)
 
 	private boolean isAlive;  // Is alive? no? then dead.
 
   // Constructor
-	public Monster(string name, string sex, int level, int maxHealth,
-  int health, int defense, int attack, int gold) {
-    this.name = name;
-    this.sex = sex;
+	public Entity(int level, int maxHealth,
+  int currentHealth, int defense, int attack, int gold)  {
 		this.level = level;
 		this.maxHealth = maxHealth;
-		this.health = health;
+		this.currentHealth = currentHealth;
 		this.defense = defense;
 		this.attack = attack;
 		this.gold = gold;
@@ -26,7 +23,7 @@ public class Entity {
 	}
 
 
-  // Getter methods
+  // Getter/setter methods
 	public int getLevel() {
 		return level;
 	}
@@ -35,8 +32,8 @@ public class Entity {
 		return maxHealth;
 	}
 
-	public int getHealth() {
-		return health;
+	public int getCurrentHealth() {
+		return currentHealth;
 	}
 
 	public int getDefense() {
@@ -59,11 +56,13 @@ public class Entity {
 
   // Entity takes damage
 	public boolean takeDamage(int damage) {
-		health -= damage;
+		currentHealth -= damage;
 
     // returns true if entity dies
-		if(health < 0)
+		if(currentHealth < 0) {
+      isAlive = false;
 			return true;
+    }
 		else
 			return false;
 	}
