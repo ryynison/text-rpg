@@ -16,13 +16,14 @@ public class Player extends Entity {
 
   public String toString() {
     return ""+
-    "Current Player Stats:\n\t"+
-      "Name: "+name+"\n\t"
-      "Health: "+currentHealth+"/"+maxHealth+"\n\t"
-      "Attack: "+attack+"\n\t"
-      "Defense: "+defense+"\n\t"
-      "Level: "+name+"\n\t"
-      "Gold: "+name+"\n\t";
+    "Current Player Stats:\n"+
+    "  Name: "+name+"\n"+
+    "  Health: "+currentHealth+"/"+maxHealth+"\n"+
+    "  Attack: "+attack+"\n"+
+    "  Defense: "+defense+"\n"+
+    "  Level: "+name+"\n"+
+    "  Experience: to be implememnted\n"+
+    "  Gold: "+gold;
   }
 
   public int levelUp() {

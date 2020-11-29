@@ -1,14 +1,14 @@
 
 public class Entity {
 
-	private int level; // Entity level
-	private int maxHealth; // Max possible health for any given state
-	private int currentHealth; // Current health of entity
-	private int defense; // Entity defense stat (determines damage taken)
-	private int attack; // Entity attack stat (determines damage given)
-	private int gold; // Entity gold (used to buy/sell)
+	protected int level; // Entity level
+	protected int maxHealth; // Max possible health for any given state
+	protected int currentHealth; // Current health of entity
+	protected int defense; // Entity defense stat (determines damage taken)
+	protected int attack; // Entity attack stat (determines damage given)
+	protected int gold; // Entity gold (used to buy/sell)
 
-	private boolean isAlive;  // Is alive? no? then dead.
+	protected boolean isAlive;  // Is alive? no? then dead.
 
   // Constructor
 	public Entity(int level, int maxHealth,
