@@ -1,3 +1,4 @@
+import java.lang.Math;
 
 public class Player extends Entity {
 
@@ -22,21 +23,26 @@ public class Player extends Entity {
 
   public String toString() {
     return ""+
-    "Current Player Stats:\n"+
+    "Current Player Statistics:\n"+
     "  Name: "+name+"\n"+
     "  Health: "+currentHealth+"/"+maxHealth+"\n"+
     "  Attack: "+attack+"\n"+
     "  Defense: "+defense+"\n"+
     "  Level: "+level+"\n"+
-    "  Experience: to be implememnted\n"+
+    "  Experience: "+exp+"/"+levelFunc(level)+"\n"+
     "  Gold: "+gold;
   }
 
+  public int levelFunc(int level) {
+    // returns the experience required to level up to the next level
+    int expReq = (int) Math.floor(Math.pow(1.1, level)+(8*level*level)+19);
+    return expReq;
+  }
+
   public int levelUp() {
-    @TODO implement a level function so that after exp
-    passes treshhold, level up occurs
-    if() {
-      null;
+    if(exp > levelFunc(level)) {
+      level += 1;
+      exp = 0;
     }
     return level;
   }
