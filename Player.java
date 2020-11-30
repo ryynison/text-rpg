@@ -44,6 +44,7 @@ public class Player extends Entity {
   }
 
   public int levelUp() {
+    // how many levels you gain after one levelUp method call
     int levelBonus = 0;
       for(int i = 0; exp >= 0; i++) {
         if(exp < levelFunc(i+1)) {
