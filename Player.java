@@ -36,14 +36,21 @@ public class Player extends Entity {
   public int levelFunc(int level) {
     // returns the experience required to level up to the next level
     int expReq = (int) Math.floor(Math.pow(1.1, level)+(8*level*level)+19);
-    return expReq;
+    //return expReq;
+    return 20;
+  }
+
+  public void expGain(int exp) {
+    this.exp += exp;
   }
 
   public int levelUp() {
+    int levelBonus = 0;
     if(exp > levelFunc(level)) {
-      level += 1;
-      exp = 0;
+      levelBonus = exp / levelFunc(level);
+      exp = exp % levelFunc(level);
     }
+    level += levelBonus;
     return level;
   }
 
