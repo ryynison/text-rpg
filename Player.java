@@ -2,14 +2,13 @@ import java.lang.Math;
 
 public class Player extends Entity {
 
-  private final String name; // Player name
-  private int exp; // experience points for leveling up
+  protected final String name; // Player name
+  protected int exp; // experience points for leveling up
 
   public Player(String name) {
     level = 0;
     maxHealth = 10;
     currentHealth = maxHealth;
-    defense = 1;
     attack = 1;
     gold = 0;
 
@@ -19,6 +18,10 @@ public class Player extends Entity {
 
   // Getters/setters
 
+  public String getName() {
+    return name;
+  }
+
   // ^w^ //
 
   public String toString() {
@@ -27,13 +30,12 @@ public class Player extends Entity {
     "  Name: "+name+"\n"+
     "  Health: "+currentHealth+"/"+maxHealth+"\n"+
     "  Attack: "+attack+"\n"+
-    "  Defense: "+defense+"\n"+
     "  Level: "+level+"\n"+
     "  Experience: "+exp+"/"+levelFunc(level)+"\n"+
-    "  Gold: "+gold;
+    "  Gold: "+gold+"\n";
   }
 
-  public int levelFunc(int level) {
+  private int levelFunc(int level) {
     // returns the experience required to level up to the next level
     int expReq = (int) Math.floor(Math.pow(1.1, level)+(8*level*level)+19);
     return expReq;
@@ -41,19 +43,21 @@ public class Player extends Entity {
 
   public void expGain(int exp) {
     this.exp += exp;
+    levelUp();
   }
 
-  public int levelUp() {
+  private int levelUp() {
     // how many levels you gain after one levelUp method call
     int levelBonus = 0;
-      for(int i = 0; exp >= 0; i++) {
-        if(exp < levelFunc(i+1)) {
-          break;
-        }
-        exp = exp - levelFunc(i);
-        levelBonus++;
+    for(int i = 0; exp >= 0; i++) {
+      if(exp < levelFunc(i+1)) {
+        break;
       }
-      level += levelBonus;
+      exp = exp - levelFunc(i);
+      levelBonus++;
+    }
+    level += levelBonus;
+    System.out.println("## Player "+name+" has evolved to level "+level+" ##");
     return level;
   }
 
