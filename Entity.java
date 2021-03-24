@@ -1,13 +1,14 @@
 
 public class Entity {
 
+	protected String type; // Type of entity
 	protected int level; // Entity level
 	protected int maxHealth; // Max possible health for any given state
 	protected int currentHealth; // Current health of entity
-	protected int defense; // Entity defense stat (determines damage taken)
 	protected int attack; // Entity attack stat (determines damage given)
 	protected int gold; // Entity gold (used to buy/sell)
 	protected boolean isAlive;  // Living status of entity
+	protected int expDrop; // Experience points dropped on kill
 
   // Constructor
 	public Entity()  {
@@ -16,6 +17,10 @@ public class Entity {
 
 
   // Getter/setter methods
+	public String getType() {
+		return type;
+	}
+
 	public int getLevel() {
 		return level;
 	}
@@ -26,10 +31,6 @@ public class Entity {
 
 	public int getCurrentHealth() {
 		return currentHealth;
-	}
-
-	public int getDefense() {
-		return defense;
 	}
 
 	public int getAttack() {
@@ -44,6 +45,10 @@ public class Entity {
 		return isAlive;
 	}
 
+	public int getExpDrop() {
+		return expDrop;
+	}
+
   // ^w^ //
 
   // Entity takes damage
@@ -51,7 +56,7 @@ public class Entity {
 		currentHealth -= damage;
 
     // returns true if entity dies
-		if(currentHealth < 0) {
+		if(currentHealth <= 0) {
       isAlive = false;
 			return true;
     }
