@@ -1,12 +1,23 @@
+import java.util.*; 
+
 
 public class Main {
   public static void main(String[] args) {
+    System.out.println();
 
-    Player player1 = new Player("Bryan");
-    System.out.println(player1);
-    player1.expGain(152);
-    player1.levelUp();
-    System.out.println(player1);
+    // Testing player class
+    Player player = new Player("Bryan");
+    System.out.println(player);
+    
+    // Testing battle function
+    ArrayList<Entity> slimes = new ArrayList<Entity>();
+    slimes.add(new Slime());
+    slimes.add(new Slime());
+    Events.battle(player, slimes);
+
+
+
 
   }
+
 }
